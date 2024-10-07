@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 function App() {
 
@@ -8,8 +8,9 @@ function App() {
   const [password, setPassword] = useState("")
 
 
+  const passwordRef = useRef(null)    //initial value null
 
-  const passwordGenerator = useCallback(() => {
+  const passwordGenerator = useCallback(() => { // useCallback for memorisation/optimisation
 
     let pass = ""
     let str = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -27,9 +28,17 @@ function App() {
   }, [length, number, char])
 
 
-  useEffect(() => {
+  useEffect(() => {       //useEffect to running function if dependencies changes
     passwordGenerator()
   }, [length, number, char, passwordGenerator])
+
+
+  const copyToClipboard = useCallback(() => {   //hook for optimisation
+    passwordRef.current?.select() //effect of copying
+    // passwordRef.current?.setSelectionRange(0,2) range
+    navigator.clipboard.writeText(password)
+  }, [password])
+
 
 
 
@@ -38,8 +47,8 @@ function App() {
     <div className='bg-slate-600 h-fit rounded-lg max-w-md w-9/12 p-4 '>
 
       <div className='flex justify-between w-full rounded-xl overflow-hidden'>
-        <input type="text" placeholder="password" className=" w-full px-4 py-2" readOnly  value={password}/>
-        <button className="bg-blue-500 text-white font-bold rounded px-4 py-2">Click </button>
+        <input type="text" placeholder="password" className=" w-full px-4 py-2"  readOnly  value={password} ref={passwordRef} />
+        <button className="bg-blue-500 text-white font-bold rounded px-4 py-2" onClick={copyToClipboard}>Copy </button>
       </div>
 
       <div className='flex justify-around w-full'>
