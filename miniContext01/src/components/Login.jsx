@@ -15,14 +15,20 @@ function Login() {
     }
     
   return (
-    <div>
+    <div className='bg-neutral-700 p-4 rounded-md'>
         <h2>Login</h2>
+
         <input type="text" placeholder='usernamee' 
         value={username}
+        className='m-3 rounded-lg p-2'
         onChange={(e) => setUsername(e.target.value) }/>
+
         <input type="text" placeholder='password' 
         value={password}
+        className='m-3 rounded-lg p-2'
         onChange={(e) => setPassword(e.target.value) }/>
+
+
         <button onClick={handleSubmit}>Submit</button>
     </div>
   )

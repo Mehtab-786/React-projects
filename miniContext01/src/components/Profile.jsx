@@ -5,8 +5,8 @@ function Profile() {
 
     const {user} = useContext(UserContext)
     
-  if (!user) return <div>no user</div>
-  return <div>welcome {user.username}</div>
+  if (!user) return <div className='text-3xl'>no user</div>
+  return <div className='text-3xl'>welcome {user.username}</div>
 }
 
 export default Profile

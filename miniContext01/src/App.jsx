@@ -7,7 +7,7 @@ function App() {
 
   return (
     <UserContextProvider>
-    <h1 className="text-3xl font-bold underline"> Starting Learning about context api </h1>
+    <h1 className="text-3xl font-bold underline p-4"> context api </h1>
     <Login/>
     <Profile/>
     </UserContextProvider>
