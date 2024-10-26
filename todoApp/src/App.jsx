@@ -10,7 +10,11 @@ function App() {
     return savedTask ? JSON.parse(savedTask) : []
   })
  
-
+  
+  const opt = {weekday : 'long'}
+  const times = {hour:'2-digit',minute:'2-digit'};
+  
+   
   
   const submitHandler = (e) => {
     e.preventDefault()
@@ -20,8 +24,8 @@ function App() {
     if (mainTask.some(t => t.task === task)) return alert('Task already exists!')
     
 
-    const currentTime = new Date();
-    const time = `${currentTime.getHours()}h:${currentTime.getMinutes()}m:${currentTime.getSeconds()}s`;
+    const date = new Date();
+    const time = `${date.toLocaleDateString('en-US',opt)},  ${date.toLocaleTimeString('en-US', times)}`
   
     setMainTask([...mainTask,{task,desc,time, completed:false}])
     
@@ -58,7 +62,7 @@ function App() {
                  {task.desc}
                  </h4>
                 </div>
-                <h4 className='mx-20 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-gradient-to-r'>{task.time}</h4>
+                <h4 className='mx-20 flex text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-gradient-to-r'>{task.time}</h4>
 
                 <button className='bg-red-500 text-xl py-1 px-3 rounded-lg' onClick={() => {return deleteHandler(idx)}}>Delete</button>
 
