@@ -6,7 +6,7 @@ import FailedTask from './FailedTask'
 
 function TaskList({data}) {
   return (
-    <div className=' h-[42%] flex flex-nowrap gap-10 overflow-x-auto items-center mt-12 rounded-xl'>
+    <div className='h-[50%] w-full sm:h-[42%] flex flex-col sm:flex-row flex-nowrap gap-5 sm:gap-10 overflow-x-auto overflow-y-auto items-center mt-8 sm:mt-12 rounded-xl '>
 
       {data.tasks.map((elem, idx)=> {
         if (elem.active) {
