@@ -229,7 +229,6 @@ export const setLocalStorage = () => {
 export const getLocalStorage = () => {
     const employees = JSON.parse(localStorage.getItem('employees'))
     const admin = JSON.parse(localStorage.getItem('admin'))
-    // console.log(employees,admin)    
     return {employees,admin}
 }
 
@@ -239,11 +238,6 @@ export const addTaskEmployee = (employeeId, newTask) => {
 
   const updatedEmployees = employees.map(employee => {
     if (employee.id == employeeId) {
-      // return {
-      //   ...employee,
-      //   tasks:[...employee.tasks,newTask],
-      //   taskNumber:{...employee.taskNumber, newTask:employee.taskNumber.newTask+1}
-      // }; 
       employee.tasks.push(newTask)
       employee.taskNumber.newTask = employee.taskNumber.newTask + 1
 

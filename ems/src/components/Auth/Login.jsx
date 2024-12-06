@@ -12,7 +12,7 @@ function Login({ handleLogin }) {
   };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center bg-gray-500  px-4">
+    <div className="w-full h-screen flex justify-center flex-col gap-5 items-center bg-gray-500  px-4">
       <div className="bg-gray-300 border border-gray-300 rounded-2xl w-full max-w-md sm:px-8 lg:max-w-lg shadow-md">
         <form
           className="flex flex-col gap-6 p-5 sm:p-8 lg:p-10 justify-center items-center text-gray-600"
@@ -38,6 +38,12 @@ function Login({ handleLogin }) {
             Log In
           </button>
         </form>
+      </div>
+
+      <div className="bg-gray-300 border text-nowrap overflow-hidden border-gray-300 rounded-xl py-2 px-2 w-full max-w-md sm:px-8 lg:max-w-lg shadow-md">
+        <h1>Users: a@a.com, employee2@example.com, employee3@example.com </h1>
+        <h1>Admin: admin@example.com</h1>
+        <h1>Password: 123 (all) </h1>
       </div>
     </div>
   );
