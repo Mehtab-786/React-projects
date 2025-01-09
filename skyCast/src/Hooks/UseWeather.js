@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 function useWeather(city) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const key =  `5c6b8b76ca33458cab201cef3e7a5bcb`;
+  const key = import.meta.env.VITE_WEATHER_API_KEY;
 
   useEffect(() => {
     // Reset error and data on each new city search
@@ -18,7 +18,7 @@ function useWeather(city) {
       .then((data) => setData(data))
       .catch((err) => setError(err.message));
   }, [city]);
-
+  
   return { data, error }; // Return both data and error
 }
 
