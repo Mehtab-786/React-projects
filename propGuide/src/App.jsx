@@ -29,10 +29,10 @@ function AppContent() {
     <Navigation />
     <h1 className="text-center text-5xl text-blue-500 font-bold mb-10">React Props !!</h1>
     <div className="space-y-10 ">
-      <div className="scroll-mt-200 border-2 p-4 border-green-500 " id="basic">
+      <div className="scroll-mt-200 border-2 p-4 border-green-500" id="basic">
         <BasicProps />
       </div>
-      <div className="scroll-mt-200 border-2 p-2" id="children">
+      <div className="scroll-mt-200 border-2 p-4 border-green-500" id="children">
         <ChildrenProps />
       </div>
       <div className="scroll-mt-200 border-2 p-2" id="complex">
