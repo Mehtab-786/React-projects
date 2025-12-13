@@ -2,13 +2,9 @@ import { CheckCircle2, PlayCircle, Trash2 } from "lucide-react";
 
 function CustomerData({ customerList, setCustomerList }) {
   const workDoneHandler = (item) => {
-    let newList = customerList.map((val) => {
-      if (item == val) {
-        val.isServed = true;
-        val.status = true; // your new logic to update status
-      }
-      return val;
-    });
+    const newList = customerList.map((val) =>
+      val == item ? { ...val, isServed: true, status: true } : val
+    );
     setCustomerList(newList);
     localStorage.setItem("customerData", JSON.stringify(newList));
   };
