@@ -37,3 +37,6 @@ Bundlers help by:
 - **Bundling** everything into efficient files
 
 Examples of popular bundlers: **Vite, Bun, Deno, Webpack, Parcel**.
+
+- **Use Ref vs fowardRef**
+useRef is used to persist mutable values or access DOM elements without causing re-renders, while forwardRef allows a parent component to pass refs to child components for direct DOM or imperative access.
