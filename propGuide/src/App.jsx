@@ -2,7 +2,7 @@ import BasicProps from './components/BasicProps'
 import ChildrenProps from './components/ChildrenProps'
 import ComplexProps from './components/ComplexProps'
 import RefProps from './components/RefProps'
-import ThemeToggler from './components/ThemeToggler'
+import ThemeToggler,{ThemeProvider, useTheme} from './components/ThemeToggler'
 
 function Navigation() {
   const isDark = true;
@@ -24,8 +24,9 @@ function Navigation() {
 }
 
 function AppContent() {
+  const {isDark} = useTheme();
   return(
-    <div className="min-h-screen w-full bg-neutral-800 text-white">
+    <div className={`min-h-screen w-full ${isDark ? "bg-neutral-800 text-white" : "bg-neutral-300 text-black"}`}>
     <Navigation />
     <h1 className="text-center text-5xl text-blue-500 font-bold mb-10">React Props !!</h1>
     <div className="space-y-10 ">
@@ -37,7 +38,7 @@ function AppContent() {
       </div>
       <div className="scroll-mt-200 border-2 p-2" id="complex">
         <ComplexProps />
-      </div>
+      </div> 
       <div className="scroll-mt-200 border-2 p-2" id="ref">
         <RefProps />
       </div>
@@ -50,7 +51,9 @@ function AppContent() {
 }
 
 function App() {
-  return <AppContent />;
+  return <ThemeProvider>
+    <AppContent />
+  </ThemeProvider>;
 }
 
 export default App;

@@ -104,8 +104,6 @@ function UserProfile({ user, theme, actions }) {
         </div>
         <div className="flex w-full mt-5">
           {Object.entries(actions).map(([key, value]) => {
-            console.log(key);
-            console.log(value);
             return (
               <button
                 key={key}
