@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+/* Product Cart */
+.Product-Card {
+    background-color: cadetblue;
+    padding: 5px;
+    color: black;
+}
+
+.Product-Card h1{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.Product-Card h3{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.Product-Card button{
+    padding: 5px 10px 5px 10px;
+    background-color: greenyellow;
+    border-radius: 10px;
+}
