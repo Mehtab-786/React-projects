@@ -1,13 +1,11 @@
-import React from 'react'
-
-function ProductCard({product, onAddToCart}) {
+function ProductCard({ product, onAddToCart }) {
   return (
-    <div className='Product-Card'>
+    <div>
       <h1>{product.name}</h1>
-      <h3>{product.price}</h3>
-      <button onClick={() => onAddToCart(product.id)}>Add To Cart</button>
+      <h1>${product.price}</h1>
+      <button onClick={() => onAddToCart(product)}>Add To Cart</button>
     </div>
-  )
+  );
 }
 
-export default ProductCard
+export default ProductCard;

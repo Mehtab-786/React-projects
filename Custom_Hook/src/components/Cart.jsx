@@ -1,25 +1,29 @@
-import CartItem from "./CartItem.jsx";
+import CartItem from "./CartItem"
 
-function Cart({ cart, onUpdateQuantity, onRemove, total }) {
+function Cart({cart,onUpdateQuantity,onRemove,total}) {
+
   if (cart.length === 0) {
-    return <h1>No Items Added Yet</h1>;
+    return (
+        <h1>Pleaes add items to cart</h1>
+    )
   }
-
+  
   return (
     <div>
-      <h2>Shopping Cart</h2>
-      {cart.map((item) => (
-        <CartItem
-          key={item.id}
+      <h1>Cart</h1>
+      {cart.map((item, idx) => (
+        <CartItem 
+          key={idx}  
+          onUpdateQuantity={onUpdateQuantity} 
+          onRemove={onRemove}  
           item={item}
-          onRemove={onRemove}
-          onUpdateQuantity={onUpdateQuantity}
-        />
-      ))};
+          />
+      ))}
       <h3>Total : ${total}</h3>
       <button>Checkout</button>
-    </div>
-  );
+
+    </div>    
+  )
 }
 
-export default Cart;
+export default Cart

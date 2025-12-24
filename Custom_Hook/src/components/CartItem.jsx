@@ -1,24 +1,18 @@
 import React from "react";
 
-function CartItem({ item, onRemove, onUpdateQuantity }) {
+function CartItem({ onUpdateQuantity, onRemove, item }) {
   return (
     <div>
-      <div>
-        <h1>{item.name}</h1>
-        <h1>{item.price}</h1>
-        <span>{item.quantity}</span>
-        <button onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}>
-          Minus
-        </button>
-        <button onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}>
-          Add
-        </button>
-        
-        <button onClick={() => onRemove(item.id)}>
-          Remove
-        </button>
-      </div>
-
+      <h3>{item.name}</h3>
+      <h3>{item.price}</h3>
+      <button onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}>
+        Add Quantity
+      </button>
+      <button onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}>
+        Remove Quantity
+      </button>
+      <button onClick={() => onRemove(item.id)}>Delete</button>
+      <button>{item.quantity}</button>
     </div>
   );
 }
