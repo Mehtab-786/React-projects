@@ -51,7 +51,10 @@ export function useCart() {
     const removeFromCart = (productId) => setCart(cartItems => cartItems.filter(item => item.id != productId));
 
     const updateQuantity = (productId, quantity) => {
-        if (quantity < 1) return;
+        if (quantity < 1) {
+            removeFromCart(productId)
+            return;
+        };
         setCart(cartItems => {
             return cartItems.map(item => item.id == productId ? { ...item, quantity } : item)
         })
