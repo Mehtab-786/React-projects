@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function useCart() {
     // const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])   
@@ -53,9 +53,19 @@ export function useCart() {
     const updateQuantity = (productId, quantity) => {
         if (quantity < 1) return;
         setCart(cartItems => {
-            return cartItems.map(item => item.id == productId ? {...item, quantity} : item)
+            return cartItems.map(item => item.id == productId ? { ...item, quantity } : item)
         })
     }
 
+    const total = useMemo(() => {
+        return Number(cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)).toFixed(2)
+    }, [cart])
 
+    return {
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        total
+    }
 }
