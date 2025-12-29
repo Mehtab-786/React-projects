@@ -1,16 +1,13 @@
-import UserContextProvider from './context/UserContextProvider'
-import './App.css'
+import React from 'react'
 import Login from './components/Login'
 import Profile from './components/Profile'
 
 function App() {
-
   return (
-    <UserContextProvider>
-    <h1 className="text-3xl font-bold underline p-4"> context api </h1>
-    <Login/>
-    <Profile/>
-    </UserContextProvider>
+    <div className='bg-neutral-800 text-white h-screen w-full flex flex-col gap-5  items-center justify-center'>
+      <Login />
+      <Profile />
+    </div>
   )
 }
 
